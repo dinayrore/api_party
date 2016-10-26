@@ -1,11 +1,11 @@
 require 'spec_helper'
-require 'storage'
+require 'pokemon_storage'
 require 'redis'
 require 'httparty'
 require 'json'
 require 'pry'
 
-describe Storage do
+describe PokemonStorage do
 
   before do
     @redis = Redis.new
@@ -14,7 +14,7 @@ describe Storage do
   describe '#initialize' do
     context 'when a new instance of the class is initialized' do
       it 'creates an instance variable' do
-        Storage.new(options = { 'id' => nil })
+        PokemonStorage.new(options = { 'id' => nil })
 
         expect(@id).to eq options['id']
       end
@@ -37,7 +37,7 @@ describe Storage do
       it 'returns true' do
         @redis.set('1', '{}')
 
-        storage = Storage.new('1')
+        storage = PokemonStorage.new('1')
 
         expect(storage.cached?).to eq true
       end
@@ -47,7 +47,7 @@ describe Storage do
       it 'returns false' do
         @redis.del('1') if @redis.exists('1')
 
-        storage = Storage.new('1')
+        storage = PokemonStorage.new('1')
 
         expect(storage.cached?).to eq false
       end
@@ -66,5 +66,9 @@ describe Storage do
     end
   end
 
-  describe ''
+  # describe '#request_from_api' do
+  #   it 'makes an HTTP request to an api' do
+  #
+  #   end
+  # end
 end

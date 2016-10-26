@@ -1,5 +1,5 @@
-#
-class Storage
+# better known as Bill's PC
+class PokemonStorage
   def initialize(id)
     @id = id
     @redis = Redis.new
@@ -20,7 +20,5 @@ class Storage
   def load_from_cache
     @data = JSON.parse(@redis.get(@id))
   end
-
-  
 
 end

@@ -27,9 +27,9 @@ def main
 
   id = options['id']
 
-  storage = Storage.new(id)
+  pokemon = PokemonStorage.new(id)
 
-  storage.check
+  pokemon.check
 
 end
 
