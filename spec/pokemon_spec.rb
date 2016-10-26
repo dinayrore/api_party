@@ -1,11 +1,11 @@
 require 'spec_helper'
-require 'pokemon_storage'
+require 'pokemon'
 require 'redis'
 require 'httparty'
 require 'json'
 require 'pry'
 
-describe PokemonStorage do
+describe Pokemon do
 
   before do
     @redis = Redis.new
@@ -14,7 +14,7 @@ describe PokemonStorage do
   describe '#initialize' do
     context 'when a new instance of the class is initialized' do
       it 'creates an instance variable' do
-        PokemonStorage.new(options = { 'id' => nil })
+        Pokemon.new(options = { 'id' => nil })
 
         expect(@id).to eq options['id']
       end
@@ -22,12 +22,22 @@ describe PokemonStorage do
   end
 
   describe '#check' do
-    context 'if data was stored previously' do
-      it 'calls on the cached function' do
+    context 'if data was cached' do
+      it 'calls on the function load_from_cache' do
+        storage = Pokemon.new('1')
+
+        storage.cached? == true
+
+        expect(storage.load_from_cache)
       end
     end
-    context 'if data was not stored previously' do
-      it 'calls on the request_from_api function' do
+    context 'if data was not cached' do
+      it 'calls on the function request_from_api' do
+        # storage = Pokemon.new('100')
+        #
+        # storage.cached? == false
+        #
+        # expect(storage.request_from_api)
       end
     end
   end
@@ -37,7 +47,7 @@ describe PokemonStorage do
       it 'returns true' do
         @redis.set('1', '{}')
 
-        storage = PokemonStorage.new('1')
+        storage = Pokemon.new('1')
 
         expect(storage.cached?).to eq true
       end
@@ -47,7 +57,7 @@ describe PokemonStorage do
       it 'returns false' do
         @redis.del('1') if @redis.exists('1')
 
-        storage = PokemonStorage.new('1')
+        storage = Pokemon.new('1')
 
         expect(storage.cached?).to eq false
       end
@@ -60,15 +70,15 @@ describe PokemonStorage do
 
       hash = @redis.get('1')
 
-      data = JSON.parse(hash)
+      @data = JSON.parse(hash)
 
-      expect(data).not_to be_empty
+      expect(@data).not_to be_empty
     end
   end
 
-  # describe '#request_from_api' do
-  #   it 'makes an HTTP request to an api' do
-  #
-  #   end
-  # end
+  describe '#request_from_api' do
+    it 'returns http success' do
+    #  expect(@data).to has_http_status(:success)
+   end
+  end
 end

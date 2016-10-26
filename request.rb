@@ -1,5 +1,6 @@
 require 'optparse'
-require_relative ''
+require 'pokemon'
+require 'types'
 
 def parse_options
   ARGV << '-h' if ARGV.empty?
@@ -27,7 +28,7 @@ def main
 
   id = options['id']
 
-  pokemon = PokemonStorage.new(id)
+  pokemon = Pokemon.new(id)
 
   pokemon.check
 
