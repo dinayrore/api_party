@@ -25,7 +25,11 @@ end
 def main
   options = parse_options
 
-  options['']
+  id = options['id']
+
+  storage = Storage.new(id)
+
+  storage.check
 
 end
 

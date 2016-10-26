@@ -1,6 +1,6 @@
 # API Party!
 
-The program entitled `pokemon.rb` is a basic program that utilizes option parser to gather data from a third party API (Pokéapi) AND very simple Rails API for Pokemon types (https://pokemon-types.herokuapp.com/types) to generate a Poke Report.  Your Poke Report will include data about a Pokemon you request and what other types of Pokemon it is and is not suited to battle.
+The program entitled `request.rb` is a basic program that utilizes option parser to gather data from a third party API (Pokéapi) AND very simple Rails API for Pokemon types (https://pokemon-types.herokuapp.com/types) to generate a Poke Report.  Your Poke Report will include data about a Pokemon you request and what other types of Pokemon it is and is not suited to battle.
 
 ## Getting Started
 
@@ -36,7 +36,7 @@ Once you have completed the above installation processes your system should be r
 Please complete the following procedure to run the program on a live system:
   1. Open Terminal.
   2. Change your directory to the one that which you have saved this zip file.`cd folder_name`
-  3. To run the program, type `ruby pokemon.rb -p id` (replacing 'id' with a desired Pokemon ID number).
+  3. To run the program, type `ruby request.rb -p id` (replacing 'id' with a desired Pokemon ID number).
 
 ## Built With
 
