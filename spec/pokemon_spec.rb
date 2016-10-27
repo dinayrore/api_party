@@ -70,15 +70,28 @@ describe Pokemon do
 
       hash = @redis.get('1')
 
-      @data = JSON.parse(hash)
+      data = JSON.parse(hash)
 
-      expect(@data).not_to be_empty
+      expect(data).not_to be_empty
     end
   end
 
   describe '#request_from_api' do
     it 'returns http success' do
     #  expect(@data).to has_http_status(:success)
+    #  expect(@data.cache).to_be true
    end
+  end
+
+  describe '#cache' do
+    context 'when data is requested from an api' do
+      it 'stores data on redis' do
+        redis = Redis.new
+
+        data = redis.set('1', JSON.dump('{"forms": []}'))
+
+        expect(data).not_to be_empty
+      end
+    end
   end
 end

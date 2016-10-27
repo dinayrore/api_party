@@ -29,4 +29,22 @@ class Pokemon
     cache
   end
 
+  def cache
+    @redis.set(@id, JSON.dump(@data))
+  end
+
+  def display_stats
+    name = @data['form'][0]['name']
+    types = @data['types']
+    one = types[0]['type']['name']
+    two = types[1]['type']['name']
+
+    puts "Pokemon Name: #{name}"
+    puts "Type 1: #{one} "
+    puts "Type 2: #{two}" unless types[1].empty?
+
+    poketypes = PokeTypes.new(one.to_s)
+    poketypes.display_stats # will this method work? Should I name it something different?
+  end
+
 end

@@ -1,6 +1,6 @@
 require 'optparse'
-require 'pokemon'
-require 'types'
+require './lib/pokemon'
+require './lib/types'
 
 def parse_options
   ARGV << '-h' if ARGV.empty?
@@ -11,7 +11,7 @@ def parse_options
     opts.banner = 'How to: ruby weather.rb [options]'
 
     opts.on('-p', '--pokemon ID') do |id|
-      options['id'] = digits
+      options['id'] = id
     end
 
     opts.on('-h', '--help') do
@@ -32,6 +32,7 @@ def main
 
   pokemon.check
 
+  pokemon.display_stats
 end
 
 main if __FILE__ == $PROGRAM_NAME
