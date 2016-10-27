@@ -3,7 +3,6 @@ require 'pokemon'
 require 'redis'
 require 'httparty'
 require 'json'
-require 'pry'
 
 describe Pokemon do
 

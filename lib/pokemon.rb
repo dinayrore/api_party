@@ -1,3 +1,7 @@
+require 'redis'
+require 'httparty'
+require 'json'
+require 'pry'
 # better known as the Pokemon Storage System, or Bill's PC
 class Pokemon
   def initialize(id)
@@ -18,7 +22,7 @@ class Pokemon
   end
 
   def load_from_cache
-    @data = JSON.parse(@redis.get(@id))
+    @data = JSON.parse(@redis.get(@id), :quirks_mode => true)
   end
 
   def request_from_api
@@ -43,8 +47,8 @@ class Pokemon
     puts "Type 1: #{one} "
     puts "Type 2: #{two}" unless types[1].empty?
 
-    poketypes = PokeTypes.new(one.to_s)
-    poketypes.display_stats # will this method work? Should I name it something different?
+    # poketypes = PokeTypes.new(one.to_s)
+    # poketypes.display_stats # will this method work? Should I name it something different?
   end
 
 end

@@ -1,3 +1,6 @@
+require 'redis'
+require 'httparty'
+require 'json'
 # pokemon-types-api
 class PokeTypes
   def initialize(type)
@@ -34,7 +37,7 @@ class PokeTypes
   end
 
   def display_stats
-    data = @data[@type]
+    data = @data[@type.downcase]
     immunity = data['immunes']
     advantage = data['weaknesses']
     weakness = data['strength']
