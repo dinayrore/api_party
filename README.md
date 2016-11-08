@@ -1,6 +1,6 @@
 # API Party!
 
-The program entitled `request.rb` is a basic program that utilizes option parser to gather data from a third party API (Pokéapi) AND very simple Rails API for Pokemon types (https://pokemon-types.herokuapp.com/types) to generate a Poke Report.  Your Poke Report will include data about a Pokemon you request and what other types of Pokemon it is and is not suited to battle.
+The program entitled 'request.rb' is a basic program that utilizes option parser to gather data from a third party API (Pokéapi) AND very simple Rails API for Pokemon types (https://pokemon-types.herokuapp.com/types) to generate a Poke Report.  Your Poke Report will include data about a Pokemon you request and what other types of Pokemon it is and is not suited to battle.
 
 ## Getting Started
 
@@ -17,17 +17,17 @@ Find Terminal - to run program
 
 Install Homebrew - to store program files properly
   1. Open up Terminal.
-  2. Run```ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"```
-  3. Run```brew doctor```
+  2. Run `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+  3. Run `brew doctor`
 
 Install rbenv & ruby-build - to install and compile different versions of Ruby code language
   1. Open up Terminal
-  2. Run```brew install ruby-build rbenv```
-  3. Run```echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile```
+  2. Run `brew install ruby-build rbenv`
+  3. Run `echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile`
 
-Install ruby 2.3.1 - the latest version of Ruby
-  1. Close and reopen Terminal.```rbenv install 2.3.1```
-  2. After quite some time, run:```rbenv global 2.3.1```
+Install ruby 2.3.1 - or latest version of Ruby
+  1. Close and reopen Terminal. `rbenv install 2.3.1`
+  2. After quite some time, run: `rbenv global 2.3.1`
 
 Once you have completed the above installation processes your system is ready to launch the program!
 
@@ -42,7 +42,7 @@ Please complete the following procedure to run the program on a live system:
 ## Built With
 
 * Atom
-* Redis
+* Utilizes: Redis cache
 
 ## Authors
 
